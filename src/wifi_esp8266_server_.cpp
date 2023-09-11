@@ -12,25 +12,31 @@
 LiquidCrystal_I2C lcd(0x27, 20, 4);
 WiFiServer server(80);
 DHTesp dht;
-const long utcOffsetInSeconds = 7200;
-char daysOfTheWeek[7][12] = {"So", "Mo", "Die", "Mi", "Do", "Fr", "Sa"};
+char wochentage[7][12] = {"So","Mo", "Die", "Mi", "Do", "Fr", "Sa"};
 WiFiUDP ntpUDP;
-NTPClient timeClient(ntpUDP, "pool.ntp.org", utcOffsetInSeconds);
+NTPClient timeClient(ntpUDP, "pool.ntp.org");
 
 int BUILDIN_LED = 2;
 
 void ntpTimer(){
   timeClient.update();
 
-  lcd.setCursor(3,0);
-  lcd.print(daysOfTheWeek[timeClient.getDay()]);
+  int aktuellerTag = timeClient.getDay();
+  int aktuelleStunde = timeClient.getHours();
+  int aktuelleMinute = timeClient.getMinutes();
+  int aktuelleSekunde = timeClient.getSeconds();
+
+  char timestamp[20];
+  sprintf(timestamp, "%s, %2d:%2d:%2d", wochentage[aktuellerTag], aktuelleStunde,
+              aktuelleMinute, aktuelleSekunde);
+
+  String formattedTime = timeClient.getFormattedTime();
+  lcd.setCursor(5,0);
+  lcd.print(wochentage[aktuellerTag]);
   lcd.print(", ");
-  lcd.print(timeClient.getHours());
-  lcd.print(":");
-  lcd.print(timeClient.getMinutes());
-  lcd.print(":");
-  lcd.println(timeClient.getSeconds());
-  // lcd.print(timeClient.getFormattedTime());
+  lcd.print(formattedTime);
+  
+  delay(1000);
 }
 
 void setupWiFi(){
@@ -74,7 +80,7 @@ void writeResponse(WiFiClient client){
   client.println("<!DOCTYPE HTML>");
   client.println("<html>"); 
   client.println("<head>"); 
-  client.println("<meta http-equiv='refresh' content='1; URL=http://"+WiFi.localIP().toString()+"'/>"); 
+  client.println("<meta http-equiv='refresh' content='1; URL=http://" + WiFi.localIP().toString() + "'/>"); 
   client.println("</head>");   
   client.println("<body>"); 
   
@@ -105,15 +111,15 @@ void localResponse(){
   if (isnan(hum)||isnan(tmp)){
     Serial.print("Keine Sensorwerte");
   } else {
-    lcd.setCursor(0,2);
+    lcd.setCursor(4,2);
     lcd.print("Temp: ");
-    lcd.setCursor(6,2);
+    lcd.setCursor(10,2);
     lcd.print(tmp);
     lcd.print(" C");
 
-    lcd.setCursor(0,3);
-    lcd.print("Hum: ");
-    lcd.setCursor(5,3);
+    lcd.setCursor(4,3);
+    lcd.print(" Hum: ");
+    lcd.setCursor(10,3);
     lcd.print(hum);
     lcd.print(" %");
     }
@@ -123,6 +129,7 @@ void setup(){
   Serial.begin(115200);
   WiFi.begin(ssid, password); 
   timeClient.begin();
+  timeClient.setTimeOffset(7200);
   dht.setup(14, DHTesp::DHT22);
   pinMode(BUILDIN_LED, OUTPUT);
 }
