@@ -31,7 +31,7 @@ void ntpTimer(){
               aktuelleMinute, aktuelleSekunde);
 
   String formattedTime = timeClient.getFormattedTime();
-  lcd.setCursor(5,0);
+  lcd.setCursor(4,0);
   lcd.print(wochentage[aktuellerTag]);
   lcd.print(", ");
   lcd.print(formattedTime);
@@ -43,7 +43,7 @@ void setupWiFi(){
   lcd.clear();
   lcd.init();
   lcd.backlight();
-  lcd.setCursor(0,0);
+  lcd.setCursor(1,0);
   lcd.print("Verbindet mit SSID");
   lcd.setCursor(9,1);
   lcd.print(ssid);
@@ -111,15 +111,15 @@ void localResponse(){
   if (isnan(hum)||isnan(tmp)){
     Serial.print("Keine Sensorwerte");
   } else {
-    lcd.setCursor(4,2);
+    lcd.setCursor(3,2);
     lcd.print("Temp: ");
-    lcd.setCursor(10,2);
+    lcd.setCursor(9,2);
     lcd.print(tmp);
     lcd.print(" C");
 
-    lcd.setCursor(4,3);
+    lcd.setCursor(3,3);
     lcd.print(" Hum: ");
-    lcd.setCursor(10,3);
+    lcd.setCursor(9,3);
     lcd.print(hum);
     lcd.print(" %");
     }
