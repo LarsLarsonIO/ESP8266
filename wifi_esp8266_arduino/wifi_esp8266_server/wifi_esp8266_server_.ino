@@ -7,7 +7,7 @@
 
 
 // ssid/password
-#include <E:\arduino-1.8.19-portable\projects\tmphum\esp8266wificredt.h>
+#include <PATH\TO\template\wifi_settings.h>
 
 LiquidCrystal_I2C lcd(0x27, 20, 4);
 WiFiServer server(80);
