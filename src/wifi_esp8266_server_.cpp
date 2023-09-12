@@ -31,7 +31,7 @@ void ntpTimer(){
               aktuelleMinute, aktuelleSekunde);
 
   String formattedTime = timeClient.getFormattedTime();
-  lcd.setCursor(0,0);
+  lcd.setCursor(1 ,0);
   lcd.print(wochentage[aktuellerTag]);
   lcd.print(", ");
   lcd.print(formattedTime);
