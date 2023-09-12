@@ -47,8 +47,7 @@ void setupWiFi(){
   lcd.print("Verbindet mit SSID");
   lcd.setCursor(9,1);
   lcd.print(ssid);
-
-  // WiFi.begin(ssid, password); 
+ 
   int index = 0;
   while (WiFi.status() != WL_CONNECTED) {
     delay(500);
