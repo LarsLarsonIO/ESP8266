@@ -5,8 +5,8 @@
 
 void setup() {
     WiFi.begin(ssid, password);
-    ArduinoOTA.setHostname("router");
-    ArduinoOTA.setPassword("2133");
+    ArduinoOTA.setHostname("");
+    ArduinoOTA.setPassword("");
     ArduinoOTA.begin();
 }
 
