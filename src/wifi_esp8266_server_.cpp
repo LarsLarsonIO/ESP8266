@@ -2,7 +2,7 @@
 #include <WiFiUdp.h>
 #include <LiquidCrystal_I2C.h>
 #include <DHTesp.h>
-#include <Wire.h> 
+#include <Wire.h>
 #include <NTPClient.h>
 
 
