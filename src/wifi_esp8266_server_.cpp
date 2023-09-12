@@ -7,7 +7,7 @@
 
 
 // ssid/password
-#include <PATH\TO\templates\wifi_settings.cpp>
+#include <C:\Users\Crypdolars\Desktop\git\ESP8266\template\wifi_settings.cpp>
 
 LiquidCrystal_I2C lcd(0x27, 20, 4);
 WiFiServer server(80);
