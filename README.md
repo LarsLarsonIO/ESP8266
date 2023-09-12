@@ -1,7 +1,7 @@
 # ESP8266
 ESP8266 Humidity/Temperature Server with Browser access.
 
-Components:
+# Components:
 ESP8266-12F D1 Mini
 Wires
 AM2302 TEMP/HUM Sensor
