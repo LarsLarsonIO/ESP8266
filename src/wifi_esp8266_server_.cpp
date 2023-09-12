@@ -12,7 +12,7 @@
 LiquidCrystal_I2C lcd(0x27, 20, 4);
 WiFiServer server(80);
 DHTesp dht;
-char wochentage[7][12] = {"Sonntag","Montag", "Dienstag", "Mittwoch", "Donnerstag", "Freitag", "Samstag"};
+char wochentage[7][12] = {"So","Mo", "Di", "Mi", "Do", "Fr", "Sa"};
 WiFiUDP ntpUDP;
 NTPClient timeClient(ntpUDP, "pool.ntp.org");
 
@@ -31,7 +31,7 @@ void ntpTimer(){
               aktuelleMinute, aktuelleSekunde);
 
   String formattedTime = timeClient.getFormattedTime();
-  lcd.setCursor(0, 0);
+  lcd.setCursor(3, 0);
   lcd.print(wochentage[aktuellerTag]);
   lcd.print(", ");
   lcd.print(formattedTime);
