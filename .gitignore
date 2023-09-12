@@ -1,4 +1,4 @@
 .pio
 .vscode/
 template/esp8266wificredt.h
-test/tmphum.cpp
+template/tmphum.cpp
