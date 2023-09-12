@@ -6,7 +6,7 @@
 #include <NTPClient.h>
 
 
-// ZUGANGSDATEN ssid/password
+// ssid/password
 #include <E:\arduino-1.8.19-portable\projects\tmphum\esp8266wificredt.h>
 
 LiquidCrystal_I2C lcd(0x27, 20, 4);
@@ -31,7 +31,7 @@ void ntpTimer(){
               aktuelleMinute, aktuelleSekunde);
 
   String formattedTime = timeClient.getFormattedTime();
-  lcd.setCursor(1 ,0);
+  lcd.setCursor(0, 0);
   lcd.print(wochentage[aktuellerTag]);
   lcd.print(", ");
   lcd.print(formattedTime);
