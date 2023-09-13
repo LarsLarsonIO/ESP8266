@@ -14,3 +14,8 @@ ESP8266 Humidity/Temperature Server with Browser access.
   DHTesp;
   Wire;
   NTPClient
+
+# Troubleshooting:
+  If you getting error messages, e.g Permission Denied while Uploading, i recommened Downloading the Driver for the ESP8266-12F D1 Mini from AZ Delivery.
+  (Link: https://cdn.shopify.com/s/files/1/1509/1638/files/ch340.zip?v=1683899825)
+  Link is also in the wifi_esp8266_server.cpp file.
