@@ -1,4 +1,3 @@
 .pio
 .vscode/
-template/index.html
 template/wifi_settings.cpp
