@@ -48,10 +48,12 @@ void setupWiFi(){
   lcd.setCursor(1,0);
   lcd.print("Verbindet mit SSID");
   lcd.setCursor(9,1);
+  lcd.blink_on();
   lcd.print(ssid);
+
  
   int index = 0;
-  while (WiFi.status() != WL_CONNECTED) {
+  while (WiFi.status() != WL_CONNECTED){
     delay(500);
     index = index + 1;
     Serial.print(index,18);
@@ -79,11 +81,11 @@ void writeResponse(WiFiClient client){
   client.println("Content-Type: text/html");
   client.println("");
   client.println("<!DOCTYPE HTML>");
-  client.println("<html>"); 
-  client.println("<head>"); 
-  client.println("<meta http-equiv='refresh' content='1; URL=http://" + WiFi.localIP().toString() + "'/>"); 
-  client.println("</head>");   
-  client.println("<body>"); 
+  client.println("<html>");
+  client.println("<head>");
+  client.println("<meta http-equiv='refresh' content='1; URL=http://" + WiFi.localIP().toString() + "'/>");
+  client.println("</head>");
+  client.println("<body>");
   
   float hum = dht.getHumidity();
   float tmp = dht.getTemperature();
@@ -101,8 +103,8 @@ void writeResponse(WiFiClient client){
     client.print(String(hum,2));
     client.println(" %");
   }
-  client.println("</body>"); 
-  client.println("</html>"); 
+  client.println("</body>");
+  client.println("</html>");
 }
 
 void localResponse(){
