@@ -1,7 +1,8 @@
 #include <ESP8266WiFi.h>
 #include <ArduinoOTA.h>
 
-#include <C:\Users\Crypdolars\Desktop\git\ESP8266\template\wifi_settings.cpp>
+const char* ssid = "YOUR_SSID";
+const char* password = "YOUR_SSID_PASSWORD";
 
 void setup() {
     WiFi.begin(ssid, password);

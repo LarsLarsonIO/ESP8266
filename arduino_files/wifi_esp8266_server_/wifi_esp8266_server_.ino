@@ -7,7 +7,8 @@
 
 
 // ssid/password
-#include <PATH\TO\wifi_settings.h>
+const char* ssid = "YOUR_SSID";
+const char* password = "YOUR_SSID_PASSWORD";
 
 LiquidCrystal_I2C lcd(0x27, 20, 4);
 WiFiServer server(80);

@@ -1,5 +1,5 @@
 # ESP8266
-ESP8266 Humidity/Temperature Server with Browser access.
+  ESP8266 Humidity/Temperature Server with Browser access.
 
 # Components:
   ESP8266-12F D1 Mini;

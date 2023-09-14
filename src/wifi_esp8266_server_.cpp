@@ -9,7 +9,8 @@
 
 
 // ssid/password
-#include <C:\Users\Crypdolars\Desktop\git\ESP8266\template\wifi_settings.cpp>
+const char* ssid = "YOUR_SSID";
+const char* password = "YOUR_SSID_PASSWORD";
 
 LiquidCrystal_I2C lcd(0x27, 20, 4);
 WiFiServer server(80);
