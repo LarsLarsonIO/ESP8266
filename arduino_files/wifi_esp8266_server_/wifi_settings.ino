@@ -1,3 +1,3 @@
 
-const char* ssid = "YOUR_SSID";
-const char* password = "YOUR_PASSWORD";
+const char* ssid = "SSID";
+const char* password = "YOUR_SSID_PASSWORD";

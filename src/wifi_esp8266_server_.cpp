@@ -7,10 +7,9 @@
 #include <Wire.h>
 #include <NTPClient.h>
 
-
 // ssid/password
-const char* ssid = "YOUR_SSID";
-const char* password = "YOUR_SSID_PASSWORD";
+const char* ssid = "RYZEN7";
+const char* password = "36)5aS87";
 
 LiquidCrystal_I2C lcd(0x27, 20, 4);
 WiFiServer server(80);
@@ -83,8 +82,10 @@ void writeResponse(WiFiClient client){
   client.println("");
   client.println("<!DOCTYPE HTML>");
   client.println("<html>");
-  client.println("<head>");
+  client.println("<head lang='en'>");
   client.println("<meta http-equiv='refresh' content='1; URL=http://" + WiFi.localIP().toString() + "'/>");
+  client.println("<meta name='viewport' content='width=device-width, initial-scale=1.0'>");
+  client.println("<title> ESP8266 Webserver </title>");
   client.println("</head>");
   client.println("<body>");
   
@@ -94,15 +95,13 @@ void writeResponse(WiFiClient client){
   if (isnan(hum) || isnan(tmp)) {
     client.println("Fehler beim lesen der Sensorwerte!");
   } else {
-    client.print("Temperatur: ");
-    client.print(String(tmp,2));
-    client.println(" &deg;C");
+    client.print("<div>");
+      client.print("<h1 style='color:red; text-align:center;'> Temperatur: " + String(tmp,2) + " &deg;C </h1>");
+      
+      client.println("<br/>");
 
-    client.println("<br/>");
-
-    client.print("rel. Luftfeuchtigkeit: ");
-    client.print(String(hum,2));
-    client.println(" %");
+      client.print("<h2 style='color:darkblue; text-align:center;'> rel. Luftfeuchtigkeit: " + String(hum,2) + " % </h2>");
+    client.print("</div>");
   }
   client.println("</body>");
   client.println("</html>");

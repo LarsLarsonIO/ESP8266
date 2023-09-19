@@ -1,2 +1,5 @@
 .pio
 .vscode/
+test/index.cpp
+test/index.html
+.gitignore
