@@ -14,3 +14,8 @@
   DHTesp;
   Wire;
   NTPClient
+
+# Troubleshooting:
+  If you getting Error Messages, e.g Permission Denied while Uploading, i recommend Downloading the Driver for the ESP8266-12F D1 Mini from AZ Delivery.
+  (Driver: https://cdn.shopify.com/s/files/1/1509/1638/files/ch340.zip?v=1683899825, Product Link: https://www.az-delivery.com/products/d1-mini)
+  Link is also in the "wifi_esp8266_server.cpp" file.
